@@ -12,9 +12,9 @@ public class DataSourceConfig {
     @Bean(name = "mysqlDataSource")
     public DataSource mysqlDataSource() {
         return DataSourceBuilder.create()
-                .url("jdbc:mysql://localhost:3306/trs_lab4")
+                .url("jdbc:mysql://localhost:3306/trs2_lab")
                 .username("root")
-                .password("password")
+                .password("root")
                 .driverClassName("com.mysql.cj.jdbc.Driver")
                 .build();
     }

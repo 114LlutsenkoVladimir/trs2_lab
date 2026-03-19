@@ -21,28 +21,28 @@ public class AbstractCrudService<T, ID,
         this.dbContext = dbContext;
     }
 
-    public RP currentContextRepo() {
+    public RP currentRepo() {
         return repoProvider.getRepo(dbContext.getCurrentDbType());
     }
 
     public void create(T entity) {
-        currentContextRepo().save(entity);
+        currentRepo().save(entity);
     }
 
     public Optional<T> findById(ID id) {
-        return currentContextRepo().findById(id);
+        return currentRepo().findById(id);
     }
 
     public List<T> findAll() {
-        return currentContextRepo().findAll();
+        return currentRepo().findAll();
     }
 
     public T update(T entity) {
-        return currentContextRepo().save(entity);
+        return currentRepo().save(entity);
     }
 
     public void delete(ID id) {
-        currentContextRepo().deleteById(id);
+        currentRepo().deleteById(id);
     }
 
 
