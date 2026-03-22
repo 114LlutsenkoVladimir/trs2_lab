@@ -6,6 +6,7 @@
 </head>
 <body>
 
+<div th:replace="header :: header"></div>
     <form method="get" th:action="@{/db-selection/db-select}">
         <label th:each="db : ${dbTypes}">
             <input type="radio" name="dbType"

@@ -34,8 +34,10 @@ public class DbSelectController {
     }
 
     @GetMapping("/db-select")
-    public String dbSelect(@RequestParam DbType dbType) {
+    public String dbSelect(@RequestParam DbType dbType,
+                           Model model) {
         context.setCurrentDbType(dbType);
-        return "redirect:/";
+        model.addAttribute("currentDbType", currentDbType());
+        return "redirect:/db-selection/";
     }
 }

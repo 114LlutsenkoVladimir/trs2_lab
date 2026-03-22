@@ -5,6 +5,8 @@
 </head>
 <body>
 
+<div th:replace="header :: header"></div>
+
 <form th:action="@{/products/by-category}" method="get">
     <label>Category ID:</label>
     <select name="categoryId" required>

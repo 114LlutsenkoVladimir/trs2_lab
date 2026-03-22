@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Distributed Transaction</title>
+</head>
+<body>
+
+<div th:replace="header :: header"></div>
+
+<h1>Distributed Transaction</h1>
+
+<form th:action="@{/distributed-transaction/execute-query}" method="post">
+    <label>SQL query:</label><br>
+    <textarea name="query" rows="4" cols="80"
+              th:text="${query}"></textarea><br><br>
+
+    <button type="submit">Execute</button>
+</form>
+
+<!-- единое сообщение -->
+
+    <label>Error message:</label><br>
+    <textarea rows="4" cols="80" readonly
+              th:text="${message}"></textarea>
+
+
+<hr>
+
+<h2>MySQL Products</h2>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+    </tr>
+    <tr th:each="p : ${mysqlProducts}">
+        <td th:text="${p.id}"></td>
+        <td th:text="${p.name}"></td>
+        <td th:text="${p.price}"></td>
+    </tr>
+</table>
+
+<br>
+
+<h2>PostgreSQL Products</h2>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+    </tr>
+    <tr th:each="p : ${postgresProducts}">
+        <td th:text="${p.id}"></td>
+        <td th:text="${p.name}"></td>
+        <td th:text="${p.price}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

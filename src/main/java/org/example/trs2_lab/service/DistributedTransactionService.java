@@ -50,7 +50,7 @@ public class DistributedTransactionService {
                 if (postgresConn != null) postgresConn.rollback();
             } catch (Exception ignored) {}
 
-            throw new RuntimeException("Distributed transaction failed", e);
+            throw new RuntimeException(e.getMessage(), e);
 
         } finally {
             try {
